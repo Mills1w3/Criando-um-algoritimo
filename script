@@ -1,0 +1,18 @@
+// script.js
+document.getElementById('add-task').addEventListener('click', function() {
+    let taskInput = document.getElementById('new-task');
+    let taskText = taskInput.value.trim();
+    
+    if (taskText !== "") {
+        let taskList = document.getElementById('task-list');
+        let newTask = document.createElement('li');
+        newTask.textContent = taskText;
+        
+        newTask.addEventListener('click', function() {
+            this.classList.toggle('completed');
+        });
+        
+        taskList.appendChild(newTask);
+        taskInput.value = "";
+    }
+});
